@@ -35,10 +35,8 @@ RUN         apt-get -y install supervisor cron curl
 RUN         echo "\n[supervisord]\nnodaemon=true\n" >> /etc/supervisor/supervisord.conf
 ADD         supervisord.conf /etc/supervisor/conf.d/default.conf
 
-
 ## lets cleanup so the image size is small(er)
 RUN         apt-get clean
-RUN         rm -rf /build /tmp/* /var/tmp/* /var/cache /var/log
+RUN         rm -rf /tmp/* /var/tmp/* /var/log/*.log /var/log/*/*.log
 
-CMD         supervisord -c /etc/supervisor/supervisord.conf
-
+CMD         /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
