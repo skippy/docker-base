@@ -5,4 +5,4 @@
 -----------------------------------------
 
 **Related resources**:
-  [Inspired by BaseImage-Docker](http://phusion.github.io/baseimage-docker/) |
+  [Inspired by BaseImage-Docker](http://phusion.github.io/baseimage-docker/)

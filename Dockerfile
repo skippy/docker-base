@@ -30,11 +30,12 @@ RUN         locale-gen en_US
 
 ## Basic requirements
 RUN         apt-get -y install supervisor cron curl syslog-ng-core
-RUN         mkdir -p /var/lib/syslog-ng
 
 ## Setting up SupervisorD
-RUN         echo "\n[supervisord]\nnodaemon=true\n" >> /etc/supervisor/supervisord.conf
 ADD         supervisord.conf /etc/supervisor/conf.d/default.conf
+
+## Setting up syslog
+RUN         mkdir -p /var/lib/syslog-ng
 
 ## lets cleanup so the image size is small(er)
 RUN         apt-get clean
